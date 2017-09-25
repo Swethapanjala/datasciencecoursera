@@ -1,3 +1,4 @@
+
 ## Making a cache matrix
 
 makeCacheMatrix <- function(x = matrix()) { 
@@ -13,7 +14,7 @@ makeCacheMatrix <- function(x = matrix()) {
 +	list(set = set, get = get, setinverse = setinverse, getinverse = getinverse)  
  } 
 
-## Making a cache solve funtion
+## SHA-1  Making a cache solve funtion
 
 makeCacheMatrix <- function(x = matrix()) { 
 - 

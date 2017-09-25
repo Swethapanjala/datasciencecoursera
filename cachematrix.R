@@ -1,6 +1,7 @@
 
-## Making a cache matrix
+## Making a cache matrix that can cache its inverse
 
+ ## set the value of the matrix 
 makeCacheMatrix <- function(x = matrix()) { 
 - 
 +	inverse <- NULL 
@@ -8,17 +9,21 @@ makeCacheMatrix <- function(x = matrix()) {
 +		x <<- y  
 +		m <<- NULL  
 +	}  
+ ## get the value of the matrix 
 +	get <- function() x  
+ ## set the value of the inverse of the matrix 
 +	setinverse <- function(i) inverse <- i 
+ ## get the value of the inverse of the matrix 
 +	getinverse <- function() inverse  
 +	list(set = set, get = get, setinverse = setinverse, getinverse = getinverse)  
  } 
 
-## SHA-1  Making a cache solve funtion
+## SHA-1  Making a cachesolve funtion to return inverse of the above matrix
 
 cacheSolve <- function(x, ...) {  
-         ## Return a matrix that is the inverse of 'x'  
-         ## Return a matrix that is the inverse of 'x'  
+         
+         ## get the value of inverse matrix
+ 
 +        inverse <- x$getinverse()  
 +        if(!is.null(inverse)) {  
 +        	message("getting cached inverse")  
@@ -26,6 +31,8 @@ cacheSolve <- function(x, ...) {
 +        }  
 +        data <- x$get()  
 +        inverse <- solve(data, ...)  
+ ## set the value of inverse of the matrix
+ ## Return a matrix that is the inverse of 'x' 
 +        x$setinverse(inverse)  
 +        inverse  
  }  
